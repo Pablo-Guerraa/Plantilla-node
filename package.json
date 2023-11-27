@@ -1,0 +1,46 @@
+{
+  "name": "plantilla-node",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn -- src/index.ts",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --fix --ext .js,.ts"
+  },
+  "author": "Mauricio Guerra",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-plugin-jest": "^25.2.2",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^10.0.0",
+    "firebase-admin": "^10.0.2",
+    "glob": "^7.2.0",
+    "mysql": "^2.18.1",
+    "pg": "^8.7.1",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.2.38"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build && npm run lint:fix && npm test"
+    }
+  }
+}
